@@ -1,7 +1,7 @@
-import numpy as np
 import pandas as pd
 import json
 import os
+
 
 # Used to check if a file is a json file by checking the format 
 def is_json_file(file):
@@ -10,6 +10,7 @@ def is_json_file(file):
     except ValueError:
         return False
     return True
+
 
 # Used to check the directory for any non json files
 def check_dir(udir):
@@ -25,7 +26,8 @@ if not check_dir(user_dir):
     print("Non valid json file(s) found")
 else:
     # Create a list of features.
-    # Each object is a list containing a feature name in the first position and the corresponding pandas Series in the second position
+    # Each object is a list containing a feature name in the first position
+    # and the corresponding pandas Series in the second position
     features = []
     ft = input("Enter desired feature from json file (enter -1 to terminate): ")
     while ft != "-1":
@@ -49,7 +51,8 @@ else:
     for i in range(1, len(features)):
         column_headers += "," + features[i][0]
     
-    # Create the rows. Example: [[1, 2, 3], [3, 2, 1], [2, 1, 3]] where each list object is a row of the corresponding data
+    # Create the rows.
+    # Example: [[1, 2, 3], [3, 2, 1], [2, 1, 3]] where each list object is a row of the corresponding data
     lst = []
     rows = []
     for i in range(features[0][1].size):
